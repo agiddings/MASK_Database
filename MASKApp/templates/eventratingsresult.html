@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>MASK</title>
+    <script src="../static/js/jquery-3.1.0.min.js"></script>
+    <script src="../static/js/slider.js"></script>
+    <link href="../static/css/slider.css" rel="stylesheet">
+    <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="http://getbootstrap.com/examples/jumbotron-narrow/jumbotron-narrow.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+
+<div class="container">
+    <div class="header">
+        <nav>
+            <ul class="nav nav-pills pull-right">
+                <li role="presentation"><a href="main">Home</a>
+                </li>
+                <li role="presentation" id="myAccount"><a href="showSignIn">Sign In</a>
+                </li>
+                <li role="presentation" id="logout"><a href="showSignUp">Sign Up</a>
+                </li>
+                <li role="presentation" id="search"><a href="search">Search</a></li>
+            </ul>
+        </nav>
+        <h3 class="text-muted">MASK 4400 Travel Guide</h3>
+    </div>
+</div>
+
+<div class="jumbotron text-center" id="title">
+    <h1>City Ratings Result</h1>
+
+</div>
+<div class="container">
+        <div>
+            <table border=1>
+                <tr>
+                    <th>Country</th>
+                    <th>City</th>
+                    <th>Address</th>
+                    <th>Event Name</th>
+                    <th>Event Date</th>
+                    <th>Start Time</th>
+                    <th>End Time</th>
+                    <th>Student Discount</th>
+                    <th>Description</th>
+                    <th>Category</th>
+                    <th>Cost</th>
+                    <th>Score</th>
+                </tr>
+                {% for data in result %}
+                <tr>
+                    {% for element in data %}
+                    <td>{{element}}</td>
+                    {% endfor %}
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+</div>
+</body>
+</html>

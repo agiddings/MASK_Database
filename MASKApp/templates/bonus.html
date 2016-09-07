@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <title>MASK</title>
+    <script src="../static/js/jquery-3.1.0.min.js"></script>
+    <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="http://getbootstrap.com/examples/jumbotron-narrow/jumbotron-narrow.css" rel="stylesheet">
+</head>
+<body>
+
+
+<div class="container">
+    <div class="header">
+        <nav>
+            <ul class="nav nav-pills pull-right">
+                <li role="presentation"><a href="main">Home</a>
+                </li>
+                <li role="presentation" id="myAccount"><a href="showSignIn">Sign In</a>
+                </li>
+                <li role="presentation" id="logout"><a href="showSignUp">Sign Up</a>
+                </li>
+                <li role="presentation" id="search"><a href="search">Search</a></li>
+            </ul>
+        </nav>
+        <h3 class="text-muted">MASK 4400 Travel Guide</h3>
+    </div>
+</div>
+
+<div class="jumbotron text-center" id="title">
+    <h1>Bonus</h1>
+
+</div>
+
+<div class="container">
+    <form role="form" action="/loadbonus" method="post">
+        <div class="form-group">
+            <label for="cityDropDown">Country:</label>
+            <select name="cityDropDown" class="form-control" id="cityDropDown">
+                {% for c in citylist %}
+                <option>{{c}}</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="ltypeDropDown">Location Type:</label>
+            <select name="ltypeDropDown" class="form-control" id="ltypeDropDown">
+                {% for l in ltypelist %}
+                <option>{{l}}</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <button type="submit" class="btn btn-default">Submit</button>
+    </form>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>MASK</title>
+    <script src="../static/js/jquery-3.1.0.min.js"></script>
+    <script src="../static/js/slider.js"></script>
+    <link href="../static/css/slider.css" rel="stylesheet">
+    <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="http://getbootstrap.com/examples/jumbotron-narrow/jumbotron-narrow.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+
+<div class="container">
+    <div class="header">
+        <nav>
+            <ul class="nav nav-pills pull-right">
+                <li role="presentation"><a href="main">Home</a>
+                </li>
+                <li role="presentation" id="myAccount"><a href="showSignIn">Sign In</a>
+                </li>
+                <li role="presentation" id="logout"><a href="showSignUp">Sign Up</a>
+                </li>
+                <li role="presentation" id="search"><a href="search">Search</a></li>
+            </ul>
+        </nav>
+        <h3 class="text-muted">MASK 4400 Travel Guide</h3>
+    </div>
+</div>
+
+<div class="jumbotron text-center" id="title">
+    <h1>City Search</h1>
+
+</div>
+<div class="container">
+    <form role="form" id="city" action="/loadCity" method="Post">
+        <div class="form-group">
+            <label for="countryDropDown">Country:</label>
+            <select name="countryDropDown" class="form-control" id="countryDropDown">
+                {% for c in countrylist %}
+                <option>{{c}}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="form-group">
+                <label for="cityDropDown">City:</label>
+                <select name=cityDropDown class="form-control" id="cityDropDown">
+                    {% for c in citylist %}
+                    <option>{{c}}</option>
+                    {% endfor %}
+                </select>
+        </div>
+
+
+        <label>Population Range:</label>
+        <div class="input-group">
+            <input type="text" class="form-control"  name="lowerbound" id="lowerbound" value="0"/>
+            <span class="input-group-addon">-</span>
+            <input type="text" class="form-control" name="upperbound" id="upperbound" value="15000000"/>
+        </div>
+        <section class="range-slider">
+            <input id="lowslider" name="lowslider" value="0" min="0" max="15000000" step="500000" type="range" style="display:table-cell; width:100%" oninput="lowerbound.value=this.value">
+            <input id="highslider" name="highslider" value="15000000" min="0" max="15000000" step="500000" type="range" style="display:table-cell; width:100%" oninput="upperbound.value=this.value">
+        </section>
+
+        <div class="form-group">
+            <label for="languageDropDown">Languages:</label>
+            <select name="languageDropDown" class="form-control" id="languageDropDown">
+                {% for l in languagelist %}
+                <option>{{l}}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <button type="submit" value="submit" class="btn btn-default">Submit</button>
+    </form>
+</div>
+</body>
+</html>

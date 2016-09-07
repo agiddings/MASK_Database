@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <title>MASK</title>
+    <script src="../static/js/jquery-3.1.0.min.js"></script>
+
+    <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="http://getbootstrap.com/examples/jumbotron-narrow/jumbotron-narrow.css" rel="stylesheet">
+</head>
+<body>
+
+<div class="container">
+    <div class="header">
+        <nav>
+            <ul class="nav nav-pills pull-right">
+                <li role="presentation"><a href="main">Home</a>
+                </li>
+                <li role="presentation" id="myAccount"><a href="showSignIn">Sign In</a>
+                </li>
+                <li role="presentation" id="logout"><a href="showSignUp">Sign Up</a>
+                </li>
+                <li role="presentation" id="search"><a href="search">Search</a></li>
+            </ul>
+        </nav>
+        <h3 class="text-muted">MASK 4400 Travel Guide</h3>
+    </div>
+</div>
+
+<div>
+    <table border=1>
+        <tr>
+            <th>Country</th>
+            <th>City</th>
+            <th>Address</th>
+            <th>Location_Name</th>
+            <th>Cost</th>
+            <th>LocationType</th>
+            <th>STD_Discount</th>
+            <th>Score</th>
+        </tr>
+        {% for data in result %}
+        <tr>
+            {% for element in data %}
+            <td>{{element}}</td>
+             {% endfor %}
+        </tr>
+        {% endfor %}
+    </table>
+    <table border=1>
+        <tr>
+            <th>Location</th>
+            <th>Event</th>
+        </tr>
+        {% for eventdata in event %}
+        <tr>
+            {% for eventelement in eventdata %}
+            <td>{{eventelement}}</td>
+            {% endfor %}
+        </tr>
+        {% endfor %}
+    </table>
+   <table border = 1>
+            <tr>
+                <th>Subject</th>
+                <th>Date</th>
+                <th>Score</th>
+                <th>Description</th>
+            </tr>
+            {% for reviewdata in reviewlist %}
+            <tr>
+                {% for reviewelement in reviewdata %}
+                <td>{{reviewelement}}</td>
+                {% endfor %}
+            </tr>
+            {% endfor %}
+        </table>
+</div>
+
+
+</body>
+</html>

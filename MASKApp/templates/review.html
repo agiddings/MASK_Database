@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>MASK</title>
+    <script src="../static/js/jquery-3.1.0.min.js"></script>
+
+    <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="http://getbootstrap.com/examples/jumbotron-narrow/jumbotron-narrow.css" rel="stylesheet">
+
+</head>
+<body>
+
+
+<div class="container">
+    <div class="header">
+        <nav>
+            <ul class="nav nav-pills pull-right">
+                <li role="presentation"><a href="main">Home</a>
+                </li>
+                <li role="presentation" id="myAccount"><a href="showSignIn">Sign In</a>
+                </li>
+                <li role="presentation" id="logout"><a href="showSignUp">Sign Up</a>
+                </li>
+                <li role="presentation" id="search"><a href="search">Search</a></li>
+            </ul>
+        </nav>
+        <h3 class="text-muted">MASK 4400 Travel Guide</h3>
+    </div>
+</div>
+
+<div class="jumbotron text-center" id="title">
+    <h1>Make a Review</h1>
+
+</div>
+<div class="container">
+    <form role="form" action="/addreview" method="post">
+        <div class="form-group">
+            <label for="Subjects">Subject:</label>
+            <select name="Subjects" class="form-control" id="Subjects">
+                {% for s in Subjects %}
+                <option>{{s}}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <label for="inputdate" class="sr-only">Date</label>
+        <input type="date" name="inputdate" id="inputdate" class="form-control" placeholder="Date" required
+               autofocus>
+        <label for="score">Score:</label>
+        <input type="text" name="textInput" id="textInput" value="">
+        <input type="range" id="score" name="score" value="3" min="0" max="5" onchange="textInput.value = score.value">
+        <div class="form-group">
+            <label for="description">Description:</label>
+            <input type="description" class="form-control" id="description" name="description" placeholder="Description">
+        </div>
+        <button id="btnReview" class="btnReview" type="submit">Make a Review</button>
+    </form>
+</div>
+</body>
+</html>

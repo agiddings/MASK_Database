@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <title>MASK</title>
+    <script src="../static/js/jquery-3.1.0.min.js"></script>
+
+    <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="http://getbootstrap.com/examples/jumbotron-narrow/jumbotron-narrow.css" rel="stylesheet">
+</head>
+<body>
+
+<div class="container">
+    <div class="header">
+        <nav>
+            <ul class="nav nav-pills pull-right">
+                <li role="presentation"><a href="main">Home</a>
+                </li>
+                <li role="presentation" id="myAccount"><a href="showSignIn">Sign In</a>
+                </li>
+                <li role="presentation" id="logout"><a href="showSignUp">Sign Up</a>
+                </li>
+                <li role="presentation" id="search"><a href="search">Search</a></li>
+            </ul>
+        </nav>
+        <h3 class="text-muted">MASK 4400 Travel Guide</h3>
+    </div>
+</div>
+
+<div>
+    <table>
+        <tr>
+            <th>Country</th>
+            <th>City</th>
+            <th>Address</th>
+            <th>Event_Name</th>
+            <th>EventDate</th>
+            <th>Start_Time</th>
+            <th>End_Time</th>
+            <th>STD_Discount</th>
+            <th>Description</th>
+            <th>Category</th>
+            <th>Cost</th>
+            <th>Score</th>
+        </tr>
+        {% for data in result %}
+        <tr>
+            <td>{{data['Country']}}</td>
+            <td>{{data['City']}}</td>
+            <td>{{data['Address']}}</td>
+            <td><a href="{{url_for('eventindividual', event=data['Event_Name'])}}">{{data['Event_Name']}}</a></td>
+            <td>{{data['EventDate']}}</td>
+            <td>{{data['Start_Time']}}</td>
+            <td>{{data['End_Time']}}</td>
+            <td>{{data['STD_Discount']}}</td>
+            <td>{{data['Description']}}</td>
+            <td>{{data['Category']}}</td>
+            <td>{{data['Cost']}}</td>
+            <td>{{data['Score']}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+
+</body>
+</html>
